@@ -6,10 +6,10 @@
 
 <h1>Items</h1>
 
-<!--
+
 <p>
 <a asp-action="Create">Create New</a>
-</p>-->
+</p>
 
 <form asp-controller="Items" asp-action="Index" method="get">
     <p>
@@ -64,10 +64,12 @@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <!--|
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> -->
+                    @if (item.NotUserDefined == false)
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">| Delete</a>
+                    }
                 </td>
-
             </tr>
         }
     </tbody>

@@ -77,10 +77,11 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Category,Description,Quantity,ExpirationDate")] Item item)
+        public async Task<IActionResult> Create([Bind("Id,Name,Category,Description,Quantity,ExpirationDate,NotUserDefined")] Item item)
         {
             if (ModelState.IsValid)
             {
+                item.NotUserDefined = false;
                 _context.Add(item);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -109,17 +110,19 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Category,Description,Quantity,ExpirationDate")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Category,Description,Quantity,ExpirationDate,NotUserDefined")] Item item)
         {
             if (id != item.Id)
             {
                 return NotFound();
             }
 
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    item.NotUserDefined = false;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }

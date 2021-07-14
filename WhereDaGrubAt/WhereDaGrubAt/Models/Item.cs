@@ -18,5 +18,6 @@ namespace WhereDaGrubAt.Models
         [Display(Name = "Expiration Date")]
         [DataType(DataType.Date)]
         public DateTime ExpirationDate { get; set; }
+        public bool NotUserDefined { get; set; }
     }
 }

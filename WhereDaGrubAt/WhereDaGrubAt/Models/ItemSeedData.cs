@@ -24,119 +24,136 @@ namespace WhereDaGrubAt.Models
                         Name = "Russet Potato",
                         Category = "Vegetable",
                         Description = "A large brown potato",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Butter",
                         Category = "Dairy",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Half-and-Half",
                         Category = "Dairy",
                         Description = "Half whole milk half light cream",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Salt",
                         Category = "Seasoning",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Black Pepper",
                         Category = "Seasoning",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Macaroni",
                         Category = "Pasta",
                         Description = "Elbow shaped noodles",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Egg",
                         Category = "Poultry",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Flour",
                         Category = "Grain",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Whole Milk",
                         Category = "Dairy",
                         Description = "Contains 3.5% percent milk fat",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Cheddar Cheese",
                         Category = "Dairy",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Chicken Breast",
                         Category = "Poultry",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Garlic Powder",
                         Category = "Seafood",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Olive Oil",
                         Category = "Misc",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Shrimp",
                         Category = "Seafood",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Garlic Clove",
                         Category = "Vegetable",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Lemon",
                         Category = "Fruit",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     },
                     new Item
                     {
                         Name = "Broccoli",
                         Category = "Vegetable",
                         Description = "",
-                        ExpirationDate = DateTime.Today
+                        ExpirationDate = DateTime.Today,
+                        NotUserDefined = true
                     }
                     );
                 context.SaveChanges();
