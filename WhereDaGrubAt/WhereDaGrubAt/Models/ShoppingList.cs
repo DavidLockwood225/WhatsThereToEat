@@ -14,8 +14,11 @@ namespace WhereDaGrubAt.Models
         public int Id { get; set; }
         [Key]
         [Column(Order = 2)]
+        [Display(Name = "Name")]
         public string ItemName { get; set; }
+        [Display(Name = "Description")]
         public string ItemDescription { get; set; }
+        [Display(Name = "Quantity")]
         public int ItemQuantity { get; set; }
         public bool Checked { get; set; }
     }
