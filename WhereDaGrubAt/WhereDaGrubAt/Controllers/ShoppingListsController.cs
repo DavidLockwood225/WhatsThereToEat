@@ -20,6 +20,7 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // GET: ShoppingLists
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.ShoppingList.ToListAsync());
@@ -46,7 +47,10 @@ namespace WhereDaGrubAt.Controllers
         // GET: ShoppingLists/Create
         public IActionResult Create()
         {
-            return View();
+            var itemList = new ShoppingListViewModel();
+            itemList.ListItems = GetItems();
+
+            return View(itemList);
         }
 
         // POST: ShoppingLists/Create
@@ -56,6 +60,7 @@ namespace WhereDaGrubAt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked")] ShoppingList shoppingList)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(shoppingList);
@@ -144,6 +149,25 @@ namespace WhereDaGrubAt.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public IEnumerable<SelectListItem> GetItems()
+        {
+            List<SelectListItem> items = _context.Item
+                                        .OrderBy(n => n.Name)
+                                            .Select(n =>
+                                            new SelectListItem
+                                            {
+                                                Value = n.Name,
+                                                Text = n.Name
+                                            }).ToList();
+
+            return new SelectList(items, "Value", "Text");
+        }
+        /*public ActionResult AddNewListItem()
+        {
+           
+            return View(model);
+        }*/
 
         private bool ShoppingListExists(int id)
         {

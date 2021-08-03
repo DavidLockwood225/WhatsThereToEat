@@ -13,15 +13,12 @@ namespace WhereDaGrubAt.Data
             : base(options)
         {
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ShoppingList>().HasKey(p => new { p.Id, p.ItemName });
-        }
 
         public DbSet<WhereDaGrubAt.Models.Item> Item { get; set; }
 
-        public DbSet<WhereDaGrubAt.Models.Recipe> Recipe { get; set; }
+        public DbSet<WhereDaGrubAt.Models.Recipe> Recipe { get; set; }   
 
         public DbSet<WhereDaGrubAt.Models.ShoppingList> ShoppingList { get; set; }
+
     }
 }

@@ -10,15 +10,16 @@ namespace WhereDaGrubAt.Migrations
                 name: "ShoppingList",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    ItemName = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ItemName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ItemDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ItemQuantity = table.Column<int>(type: "int", nullable: false),
                     Checked = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShoppingList", x => new { x.Id, x.ItemName });
+                    table.PrimaryKey("PK_ShoppingList", x => x.Id);
                 });
         }
 

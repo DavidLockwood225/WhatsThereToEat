@@ -1,4 +1,4 @@
-﻿@model WhereDaGrubAt.Models.ShoppingList
+﻿@model WhereDaGrubAt.Models.ShoppingListViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,34 +13,36 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+
                 <label asp-for="ItemName" class="control-label"></label>
-                <input asp-for="ItemName" class="form-control" />
+                <p>
+                <select asp-for="ItemName"
+                        asp-items="@(new SelectList(Model.ListItems, "Value", "Text"))">
+                </select>
+                    </p>
                 <span asp-validation-for="ItemName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ItemDescription" class="control-label"></label>
-                <input asp-for="ItemDescription" class="form-control" />
-                <span asp-validation-for="ItemDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ItemQuantity" class="control-label"></label>
-                <input asp-for="ItemQuantity" class="form-control" />
-                <span asp-validation-for="ItemQuantity" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Checked" /> @Html.DisplayNameFor(model => model.Checked)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="ItemDescription" class="control-label"></label>
+                    <input asp-for="ItemDescription" class="form-control" />
+                    <span asp-validation-for="ItemDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemQuantity" class="control-label"></label>
+                    <input asp-for="ItemQuantity" class="form-control" />
+                    <span asp-validation-for="ItemQuantity" class="text-danger"></span>
+                </div>
+                <!--
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Checked" /> @Html.DisplayNameFor(model => model.Checked)
+                    </label>
+                </div
+                -->
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+</form>
     </div>
 </div>
 

@@ -20,9 +20,32 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // GET: Recipes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string recipeCategory, string searchString)
         {
-            return View(await _context.Recipe.ToListAsync());
+            IQueryable<string> categoryQuery = from m in _context.Recipe
+                                            orderby m.Category
+                                            select m.Category;
+
+
+            var recipes = from m in _context.Recipe
+                          select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                recipes = recipes.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(recipeCategory))
+            {
+                recipes = recipes.Where(x => x.Category == recipeCategory);
+            }
+
+            var recipeCategoryVM = new RecipeCategoryViewModel
+            {
+                Categories = new SelectList(await categoryQuery.Distinct().ToListAsync()),
+                Recipes = await recipes.ToListAsync()
+            };
+            return View(recipeCategoryVM);
         }
 
         // GET: Recipes/Details/5
@@ -64,7 +87,7 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Category,ServingSize,Ingredients,Directions")] Recipe recipe)
+        public async Task<IActionResult> Create([Bind("Id,Title,Category,ServingSize,Ingredients,Directions,NotUserDefined")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +119,7 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Category,ServingSize,Ingredients,Directions")] Recipe recipe)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Category,ServingSize,Ingredients,Directions,NotUserDefined")] Recipe recipe)
         {
             if (id != recipe.Id)
             {

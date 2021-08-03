@@ -10,7 +10,7 @@ using WhereDaGrubAt.Data;
 namespace WhereDaGrubAt.Migrations
 {
     [DbContext(typeof(WhereDaGrubAtContext))]
-    [Migration("20210714015632_ShoppingList")]
+    [Migration("20210802193209_ShoppingList")]
     partial class ShoppingList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace WhereDaGrubAt.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("WhereDaGrubAt.Models.Item", b =>
@@ -81,10 +81,9 @@ namespace WhereDaGrubAt.Migrations
             modelBuilder.Entity("WhereDaGrubAt.Models.ShoppingList", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ItemName")
-                        .HasColumnType("nvarchar(450)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("Checked")
                         .HasColumnType("bit");
@@ -92,10 +91,13 @@ namespace WhereDaGrubAt.Migrations
                     b.Property<string>("ItemDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ItemName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ItemQuantity")
                         .HasColumnType("int");
 
-                    b.HasKey("Id", "ItemName");
+                    b.HasKey("Id");
 
                     b.ToTable("ShoppingList");
                 });

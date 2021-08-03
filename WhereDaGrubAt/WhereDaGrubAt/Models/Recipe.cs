@@ -13,5 +13,6 @@ namespace WhereDaGrubAt.Models
         public string ServingSize { get; set; }
         public string Ingredients { get; set; }
         public string Directions { get; set; }
+        public bool NotUserDefined { get; set; }
     }
 }

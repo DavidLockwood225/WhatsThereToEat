@@ -81,7 +81,6 @@ namespace WhereDaGrubAt.Controllers
         {
             if (ModelState.IsValid)
             {
-                item.NotUserDefined = false;
                 _context.Add(item);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -122,7 +121,6 @@ namespace WhereDaGrubAt.Controllers
             {
                 try
                 {
-                    item.NotUserDefined = false;
                     _context.Update(item);
                     await _context.SaveChangesAsync();
                 }
@@ -170,7 +168,7 @@ namespace WhereDaGrubAt.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+       
         private bool ItemExists(int id)
         {
             return _context.Item.Any(e => e.Id == id);

@@ -9,11 +9,7 @@ namespace WhereDaGrubAt.Models
 {
     public class ShoppingList
     {
-        [Key] 
-        [Column(Order = 1)]
         public int Id { get; set; }
-        [Key]
-        [Column(Order = 2)]
         [Display(Name = "Name")]
         public string ItemName { get; set; }
         [Display(Name = "Description")]

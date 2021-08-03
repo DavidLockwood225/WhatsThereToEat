@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WhereDaGrubAt.Models.Recipe>
+﻿@model WhereDaGrubAt.Models.RecipeCategoryViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -6,27 +6,39 @@
 
 <h1>Recipes</h1>
 
-<!--
+
 <p>
-<a asp-action="Create">Create New</a>
-</p>-->
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Recipes" asp-action="Index" method="get">
+    <p>
+        <select asp-for="RecipeCategory" asp-items="Model.Categories">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Recipes[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.Recipes[0].Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ServingSize)
+                @Html.DisplayNameFor(model => model.Recipes[0].ServingSize)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Recipes)
         {
             <tr>
                 <td>
@@ -39,10 +51,16 @@
                     @Html.DisplayFor(modelItem => item.ServingSize)
                 </td>
                 <td>
-                    <!--<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
+                    @if (item.NotUserDefined == false)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit  |</a>
+
+                    }
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <!--|
-    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
+                    @if (item.NotUserDefined == false)
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">| Delete</a>
+                    }
                 </td>
             </tr>
         }
