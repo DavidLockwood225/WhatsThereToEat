@@ -163,11 +163,6 @@ namespace WhereDaGrubAt.Controllers
 
             return new SelectList(items, "Value", "Text");
         }
-        /*public ActionResult AddNewListItem()
-        {
-           
-            return View(model);
-        }*/
 
         private bool ShoppingListExists(int id)
         {
