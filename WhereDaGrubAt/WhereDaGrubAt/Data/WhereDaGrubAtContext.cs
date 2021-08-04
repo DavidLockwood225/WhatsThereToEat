@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WhereDaGrubAt.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace WhereDaGrubAt.Data
 {
-    public class WhereDaGrubAtContext : DbContext
+    public class WhereDaGrubAtContext : IdentityDbContext<IdentityUser>
     {
         public WhereDaGrubAtContext (DbContextOptions<WhereDaGrubAtContext> options)
             : base(options)
