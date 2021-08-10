@@ -9,6 +9,10 @@ namespace WhereDaGrubAt.Models
 {
     public class ShoppingListViewModel : ShoppingList
     {
+        public List<ShoppingList> List { get; set; }
+        public SelectList ListNames { get; set; }
+        public string ListName { get; set; }
+        public string SearchString { get; set; }
         public int SelectedItemId { get; set; }
         public IEnumerable<SelectListItem> ListItems { get; set; }
     }

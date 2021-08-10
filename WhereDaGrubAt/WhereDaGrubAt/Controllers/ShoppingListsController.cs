@@ -21,9 +21,32 @@ namespace WhereDaGrubAt.Controllers
 
         // GET: ShoppingLists
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string listTitle, string searchString)
         {
-            return View(await _context.ShoppingList.ToListAsync());
+            IQueryable<string> titleQuery = from m in _context.ShoppingList
+                                               orderby m.ListTitle
+                                               select m.ListTitle;
+
+            var items = from m in _context.ShoppingList
+                        select m;
+
+            /*if (!string.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.ListTitle.Contains(searchString));
+            }*/
+
+            if (!string.IsNullOrEmpty(listTitle))
+            {
+                items = items.Where(x => x.ListTitle == listTitle);
+            }
+
+            var listTitleVM = new ShoppingListViewModel
+            {
+                ListNames = new SelectList(await titleQuery.Distinct().ToListAsync()),
+                List = await items.ToListAsync()
+            };
+
+            return View(listTitleVM);
         }
 
         // GET: ShoppingLists/Details/5
@@ -58,11 +81,12 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked")] ShoppingList shoppingList)
+        public async Task<IActionResult> Create([Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
         {
 
             if (ModelState.IsValid)
             {
+                shoppingList.ListTitle = "Default";
                 _context.Add(shoppingList);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -83,6 +107,7 @@ namespace WhereDaGrubAt.Controllers
             {
                 return NotFound();
             }
+
             return View(shoppingList);
         }
 
@@ -91,7 +116,58 @@ namespace WhereDaGrubAt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked")] ShoppingList shoppingList)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
+        {
+            if (id != shoppingList.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(shoppingList);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ShoppingListExists(shoppingList.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(shoppingList);
+        }
+
+        // GET: ShoppingLists/SaveList/5
+        public async Task<IActionResult> SaveList(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var shoppingList = await _context.ShoppingList.FindAsync(id);
+            if (shoppingList == null)
+            {
+                return NotFound();
+            }
+            return View(shoppingList);
+        }
+
+        // POST: ShoppingLists/SaveList/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveList(int id, [Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
         {
             if (id != shoppingList.Id)
             {

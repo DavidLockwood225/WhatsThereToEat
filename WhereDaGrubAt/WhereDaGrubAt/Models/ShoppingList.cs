@@ -17,5 +17,7 @@ namespace WhereDaGrubAt.Models
         [Display(Name = "Quantity")]
         public int ItemQuantity { get; set; }
         public bool Checked { get; set; }
+        [Display(Name = "Shopping List Name")]
+        public string ListTitle { get; set; }
     }
 }

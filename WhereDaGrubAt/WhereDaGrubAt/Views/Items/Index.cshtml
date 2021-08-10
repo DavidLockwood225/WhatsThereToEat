@@ -8,15 +8,16 @@
 
 
 <p>
-<a asp-action="Create">Create New</a>
+<a asp-action="Create">Create New Item</a>
 </p>
 
 <form asp-controller="Items" asp-action="Index" method="get">
     <p>
-        <select asp-for="ItemCategory" asp-items="Model.Categories">
+        Category: <select asp-for="ItemCategory" asp-items="Model.Categories">
             <option value="">All</option>
         </select>
-
+        </p>
+    <p>
         Name: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
     </p>

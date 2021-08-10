@@ -13,6 +13,29 @@
             margin-right: auto;
             width: 50%;
         }
+        a:link {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -22,9 +45,9 @@
     <img src="@Url.Content("~/grub.jpeg")" />
     <div class="text-center">
         <p></p>
-        <p>Manage your inventory!</p>
-        <p>Browse our recipes!</p>
-        <p>Create a shopping list!</p>
+        <p><a href="@Url.Content("~/Items")">Manage your inventory!</a></p>
+        <p><a href="@Url.Content("~/Recipes")">Browse our recipes!</a></p>
+        <p><a href="@Url.Content("~/ShoppingLists")">Create a shopping list!</a></p>
     </div>
 </body>
 </html>
