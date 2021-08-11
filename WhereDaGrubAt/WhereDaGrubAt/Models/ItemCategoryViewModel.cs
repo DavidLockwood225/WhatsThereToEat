@@ -1,7 +1,9 @@
-﻿using System;
+﻿/*
+ * David Lockwood
+ * ViewModel for UI filtering by Item Category and Name
+ */
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WhereDaGrubAt.Models

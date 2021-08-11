@@ -1,4 +1,8 @@
-﻿@model WhereDaGrubAt.Models.ShoppingListViewModel
+﻿<!--David Lockwood
+    ShoppingLists/Index view
+    Displays table containing all shopping list objects and a select list to filter shopping lists by title-->
+
+@model WhereDaGrubAt.Models.ShoppingListViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -16,46 +20,46 @@
         </select>
         <input type="submit" value="Filter" />
     </p>
-    </form>
-    <table class="table">
-        <thead>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.List[0].ItemQuantity)
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.List)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.List[0].ItemName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.List[0].ItemDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.List[0].ItemQuantity)
-                </th>
-                <th>
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemQuantity)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.Checked)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                    <a asp-action="SaveList" asp-route-id="@item.Id">Save to List</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.List)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemQuantity)
-                    </td>
-                    <td>
-                        @Html.CheckBoxFor(modelItem => item.Checked)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                        <a asp-action="SaveList" asp-route-id="@item.Id">Save to List</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*
+ * David Lockwood
+ * RecipesController is the Controller for all Recipe Views as well as all Recipe CRUD operations
+ * 
+ * inputs: _context: DbContext, Used to query the database
+ *         recipeCategory: string, Used in query to filter by Category
+ *         searchString: string, Used in query to filter by most relevant Recipe's Title
+ *         id: int, Used to perform CRUD operations
+ *         recipe: Recipe, Contains all fields that an recipe consists of and used to perform CRUD operations
+ *         
+ * output: recipeCategoryVM: ViewResult, ViewModel containing filtered Recipes
+ *         recipe: ViewResult, model containing the specified Recipe's fields
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -69,8 +83,8 @@ namespace WhereDaGrubAt.Controllers
                 Title = recipe.Title,
                 Category = recipe.Category,
                 ServingSize = recipe.ServingSize,
-                Ingredients = recipe.Ingredients.Split(new char[] { ',' }).ToList(),
-                Directions = recipe.Directions.Split(new char[] { ',' }).ToList()
+                RecipeIngredients = recipe.Ingredients.Split(new char[] { ',' }).ToList(),
+                RecipeDirections = recipe.Directions.Split(new char[] { ',' }).ToList()
             };
 
             return View(recipeVM);
@@ -83,8 +97,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: Recipes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Category,ServingSize,Ingredients,Directions,NotUserDefined")] Recipe recipe)
@@ -115,8 +127,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: Recipes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Category,ServingSize,Ingredients,Directions,NotUserDefined")] Recipe recipe)

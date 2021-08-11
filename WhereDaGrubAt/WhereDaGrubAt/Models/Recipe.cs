@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿/*
+ * David Lockwood
+ * Model for the Recipe class fields
+ */
 
 namespace WhereDaGrubAt.Models
 {

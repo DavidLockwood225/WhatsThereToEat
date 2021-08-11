@@ -1,4 +1,11 @@
-﻿@model WhereDaGrubAt.Models.RecipeCategoryViewModel
+﻿<!--David Lockwood
+    Items/Index view
+    Displays table containing all recipes, with the ability to filter based on Category and/or Name
+    Contains logic that alters the table based on the Recipe's NotUserDefined field
+    NotUserDefined == false, User can edit and delete recipe
+                   == true, User can only view the recipe's details'-->
+
+@model WhereDaGrubAt.Models.RecipeCategoryViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -16,7 +23,7 @@
         Category: <select asp-for="RecipeCategory" asp-items="Model.Categories">
             <option value="">All</option>
         </select>
-        </p>
+    </p>
     <p>
         Title: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />

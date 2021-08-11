@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/* 
+ * David Lockwood
+ * HomeController is the Controller for the home page. Contains action methods for the Index, Privacy, and Error Views. 
+ */
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using WhereDaGrubAt.Models;
-using System.IO;
 
 namespace WhereDaGrubAt.Controllers
 {

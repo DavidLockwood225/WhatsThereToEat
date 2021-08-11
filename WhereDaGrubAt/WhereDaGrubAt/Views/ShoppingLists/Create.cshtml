@@ -1,4 +1,8 @@
-﻿@model WhereDaGrubAt.Models.ShoppingListViewModel
+﻿<!--David Lockwood
+    ShoppingLists/Create view
+    Displays form used to create a new Shopping List object-->
+
+@model WhereDaGrubAt.Models.ShoppingListViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -16,33 +20,31 @@
 
                 <label asp-for="ItemName" class="control-label"></label>
                 <p>
-                <select asp-for="ItemName"
-                        asp-items="@(new SelectList(Model.ListItems, "Value", "Text"))">
-                </select>
-                    </p>
+                    <select asp-for="ItemName"
+                            asp-items="@(new SelectList(Model.ListItems, "Value", "Text"))">
+                    </select>
+                </p>
                 <span asp-validation-for="ItemName" class="text-danger"></span>
             </div>
-                <div class="form-group">
-                    <label asp-for="ItemDescription" class="control-label"></label>
-                    <input asp-for="ItemDescription" class="form-control" />
-                    <span asp-validation-for="ItemDescription" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ItemQuantity" class="control-label"></label>
-                    <input asp-for="ItemQuantity" class="form-control" />
-                    <span asp-validation-for="ItemQuantity" class="text-danger"></span>
-                </div>
-                <!--
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Checked" /> @Html.DisplayNameFor(model => model.Checked)
-                    </label>
-                </div
-                -->
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-</form>
+            <div class="form-group">
+                <label asp-for="ItemDescription" class="control-label"></label>
+                <input asp-for="ItemDescription" class="form-control" />
+                <span asp-validation-for="ItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemQuantity" class="control-label"></label>
+                <input asp-for="ItemQuantity" class="form-control" />
+                <span asp-validation-for="ItemQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListTitle" class="control-label"></label>
+                <input asp-for="ListTitle" class="form-control" value="Default" />
+                <span asp-validation-for="ListTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 

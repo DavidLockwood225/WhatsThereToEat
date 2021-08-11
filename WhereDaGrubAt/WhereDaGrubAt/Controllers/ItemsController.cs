@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * David Lockwood
+ * ItemsController is the Controller for all Inventory Views as well as all Item CRUD operations
+ * 
+ * inputs: _context: DbContext, Used to query the database
+ *         itemCategory: string, Used in query to filter by Category
+ *         searchString: string, Used in query to filter by most relevant Item Name
+ *         id: int, Used to perform CRUD operations
+ *         item: Item, Contains all fields that an item consists of and used to perform CRUD operations
+ *         
+ * output: itemCategoryVM: ViewResult, ViewModel containing filtered Inventory items
+ *         item: ViewResult, model containing the specified Item's fields
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,24 +61,6 @@ namespace WhereDaGrubAt.Controllers
             return View(itemCategoryVM);
         }
 
-        // GET: Items/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var item = await _context.Item
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-
-            return View(item);
-        }
-
         // GET: Items/Create
         public IActionResult Create()
         {
@@ -73,8 +68,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: Items/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Category,Description,Quantity,ExpirationDate,NotUserDefined")] Item item)
@@ -105,8 +98,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: Items/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Category,Description,Quantity,ExpirationDate,NotUserDefined")] Item item)

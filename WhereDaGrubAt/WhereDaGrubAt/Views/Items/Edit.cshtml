@@ -1,4 +1,11 @@
-﻿@model WhereDaGrubAt.Models.Item
+﻿<!--David Lockwood
+    Items/Edit view
+    Displays form used in the creation of a User-Defined Item
+    Contains logic that alters the form based on the Item's NotUserDefined field
+    NotUserDefined == false, User can edit all fields
+                   == true, User can only edit quantity and expiration date-->
+
+@model WhereDaGrubAt.Models.Item
 
 @{
     ViewData["Title"] = "Edit";
@@ -56,7 +63,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Inventory</a>
 </div>
 
 @section Scripts {

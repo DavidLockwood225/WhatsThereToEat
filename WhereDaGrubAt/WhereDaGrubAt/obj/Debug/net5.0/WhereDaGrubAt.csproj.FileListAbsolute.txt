@@ -289,7 +289,6 @@ C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaG
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Items\Create.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Items\Delete.cshtml.g.cs
-C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Items\Details.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Items\Edit.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Items\Index.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Recipes\Create.cshtml.g.cs
@@ -579,3 +578,4 @@ C:\Users\Dharla\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj
 C:\Users\Dharla\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Dharla\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Dharla\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\SaveList.cshtml.g.cs
+C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\SaveList.cshtml.g.cs

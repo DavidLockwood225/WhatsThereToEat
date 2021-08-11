@@ -1,4 +1,11 @@
-﻿@model WhereDaGrubAt.Models.ItemCategoryViewModel
+﻿<!--David Lockwood
+    Items/Index view
+    Displays table containing all items, with the ability to filter based on Category and/or Name
+    Contains logic that alters the table based on the Item's NotUserDefined field
+    NotUserDefined == false, User can edit and delete item
+                   == true, User can only edit quantity and expiration date-->
+
+@model WhereDaGrubAt.Models.ItemCategoryViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +15,7 @@
 
 
 <p>
-<a asp-action="Create">Create New Item</a>
+    <a asp-action="Create">Create New Item</a>
 </p>
 
 <form asp-controller="Items" asp-action="Index" method="get">
@@ -16,7 +23,7 @@
         Category: <select asp-for="ItemCategory" asp-items="Model.Categories">
             <option value="">All</option>
         </select>
-        </p>
+    </p>
     <p>
         Name: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
@@ -64,8 +71,7 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <!--|
-    <a asp-action="Details" asp-route-id="@item.Id">Details</a> -->
+
                     @if (item.NotUserDefined == false)
                     {
                         <a asp-action="Delete" asp-route-id="@item.Id">| Delete</a>

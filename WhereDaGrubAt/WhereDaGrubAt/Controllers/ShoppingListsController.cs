@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * David Lockwood
+ * RecipesController is the Controller for all Recipe Views as well as all Recipe CRUD operations
+ * 
+ * inputs: _context: DbContext, Used to query the database
+ *         listTitle: string, Used in query to filter by Shopping List Title
+ *         id: int, Used to perform CRUD operations
+ *         shoppingList: ShoppingList, Contains all fields that a shopping list item consists of and used to perform CRUD operations
+ *         
+ * output: listTitleVM: ViewResult, ViewModel containing filtered Shopping List items
+ *         shoppingList: ViewResult, containing the specified shopping list item's fields
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +33,7 @@ namespace WhereDaGrubAt.Controllers
 
         // GET: ShoppingLists
         [HttpGet]
-        public async Task<IActionResult> Index(string listTitle, string searchString)
+        public async Task<IActionResult> Index(string listTitle)
         {
             IQueryable<string> titleQuery = from m in _context.ShoppingList
                                                orderby m.ListTitle
@@ -29,11 +41,6 @@ namespace WhereDaGrubAt.Controllers
 
             var items = from m in _context.ShoppingList
                         select m;
-
-            /*if (!string.IsNullOrEmpty(searchString))
-            {
-                items = items.Where(s => s.ListTitle.Contains(searchString));
-            }*/
 
             if (!string.IsNullOrEmpty(listTitle))
             {
@@ -77,8 +84,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: ShoppingLists/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
@@ -86,7 +91,6 @@ namespace WhereDaGrubAt.Controllers
 
             if (ModelState.IsValid)
             {
-                shoppingList.ListTitle = "Default";
                 _context.Add(shoppingList);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -112,8 +116,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: ShoppingLists/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
@@ -163,8 +165,6 @@ namespace WhereDaGrubAt.Controllers
         }
 
         // POST: ShoppingLists/SaveList/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SaveList(int id, [Bind("Id,ItemName,ItemDescription,ItemQuantity,Checked,ListTitle")] ShoppingList shoppingList)
@@ -225,12 +225,12 @@ namespace WhereDaGrubAt.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        // Retrieves Items for Create View's dropdown selection
         public IEnumerable<SelectListItem> GetItems()
         {
             List<SelectListItem> items = _context.Item
                                         .OrderBy(n => n.Name)
-                                            .Select(n =>
+                                        .Select(n =>
                                             new SelectListItem
                                             {
                                                 Value = n.Name,
