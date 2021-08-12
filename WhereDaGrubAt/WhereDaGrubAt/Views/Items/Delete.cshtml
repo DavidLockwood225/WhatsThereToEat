@@ -50,6 +50,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to Inventory</a>
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Index", "Items")'">Back to Inventory</button>
     </form>
 </div>

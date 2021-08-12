@@ -5,6 +5,8 @@
     NotUserDefined == false, User can edit and delete item
                    == true, User can only edit quantity and expiration date-->
 
+
+
 @model WhereDaGrubAt.Models.ItemCategoryViewModel
 
 @{
@@ -12,11 +14,6 @@
 }
 
 <h1>Items</h1>
-
-
-<p>
-    <a asp-action="Create">Create New Item</a>
-</p>
 
 <form asp-controller="Items" asp-action="Index" method="get">
     <p>
@@ -29,6 +26,9 @@
         <input type="submit" value="Filter" />
     </p>
 </form>
+<p>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Items")'">Create New Item</button>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -70,11 +70,11 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button">Edit</button></a>
 
                     @if (item.NotUserDefined == false)
                     {
-                        <a asp-action="Delete" asp-route-id="@item.Id">| Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><button type="button">Delete</button></a>
                     }
                 </td>
             </tr>

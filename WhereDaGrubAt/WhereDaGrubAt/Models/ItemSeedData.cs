@@ -113,7 +113,7 @@ namespace WhereDaGrubAt.Models
                     new Item
                     {
                         Name = "Garlic Powder",
-                        Category = "Seafood",
+                        Category = "Seasoning",
                         Description = "",
                         ExpirationDate = DateTime.Today,
                         NotUserDefined = true
