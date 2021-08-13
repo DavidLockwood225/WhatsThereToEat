@@ -46,7 +46,7 @@ namespace WhereDaGrubAt.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                recipes = recipes.Where(s => s.Title.Contains(searchString));
+                recipes = recipes.Where(s => s.Title.Contains(searchString) | s.Category.Contains(searchString) | s.Ingredients.Contains(searchString));
             }
 
             if (!string.IsNullOrEmpty(recipeCategory))

@@ -8,19 +8,61 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Shopping List</h1>
+<head>
+    <style>
+        fieldset {
+            display: block;
+            padding-top: 0.35em;
+            padding-bottom: 0.625em;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            border: 2px groove;
+        }
 
-<p>
-    <a asp-action="Create">Add New Item</a>
-</p>
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        select {
+            margin: 5px;
+        }
+
+        td, th {
+            font-family: Calibri;
+            position: relative;
+            vertical-align: bottom;
+        }
+    </style>
+
+</head>
+
+<p></p>
+<h1>Shopping List</h1>
+<p></p>
+
 <form asp-controller="ShoppingLists" asp-action="Index" method="get">
-    <p>
-        Shopping List: <select asp-for="ListTitle" asp-items="Model.ListNames">
-            <option value="">All</option>
-        </select>
-        <input type="submit" value="Filter" />
-    </p>
+    <fieldset>
+        <legend>Select Shopping List</legend>
+        <p>
+            Title: <select asp-for="ListTitle" asp-items="Model.ListNames">
+                <option value="">All</option>
+            </select>
+            <input type="submit" value="Filter" />
+        </p>
+    </fieldset>
 </form>
+
+<p></p>
+<p>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "ShoppingLists")'">Add Item</button>
+</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -55,9 +97,9 @@
                     @Html.CheckBoxFor(modelItem => item.Checked)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                    <a asp-action="SaveList" asp-route-id="@item.Id">Save to List</a>
+                    <a asp-action="SaveList" asp-route-id="@item.Id"><button class="btn btn-primary btn-sm">Save to List</button></a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button class="btn btn-primary btn-sm">Edit</button></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button class="btn btn-danger btn-sm">Delete</button></a>
                 </td>
             </tr>
         }

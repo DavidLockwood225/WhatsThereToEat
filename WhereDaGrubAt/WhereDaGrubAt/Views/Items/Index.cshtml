@@ -12,72 +12,110 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Items</h1>
-
-<form asp-controller="Items" asp-action="Index" method="get">
-    <p>
-        Category: <select asp-for="ItemCategory" asp-items="Model.Categories">
-            <option value="">All</option>
-        </select>
-    </p>
-    <p>
-        Name: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-<p>
-    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Items")'">Create New Item</button>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].ExpirationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Quantity)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Items)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExpirationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button">Edit</button></a>
-
-                    @if (item.NotUserDefined == false)
-                    {
-                        <a asp-action="Delete" asp-route-id="@item.Id"><button type="button">Delete</button></a>
-                    }
-                </td>
-            </tr>
+<head>
+    <style>
+        fieldset {
+            display: block;            
+            padding-top: 0.35em;
+            padding-bottom: 0.625em;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            border: 2px groove;
         }
-    </tbody>
-</table>
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+        input {
+            margin: 5px;
+        }
+        select {
+            margin: 5px;
+        }
+        td, th {
+            font-family: Calibri; 
+            position: relative;
+            vertical-align: bottom;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p></p>
+    <h1>Inventory</h1>
+    <p></p>
+    
+    <form asp-controller="Items" asp-action="Index" method="get">
+        <fieldset>
+            <legend>Search Items:</legend>
+            <p>
+                Category: <select asp-for="ItemCategory" asp-items="Model.Categories">
+                    <option value="">All</option>
+                </select>
+            </p>
+            <p>
+                <input type="text" name="SearchString" />
+                <input type="submit" value="Search" />
+            </p>
+        </fieldset>
+    </form>
+
+    <p></p>
+    <p>
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Items")'">Create New Item</button>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].ExpirationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Items[0].Quantity)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpirationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><button class="btn btn-primary btn-sm">Edit</button></a>
+
+                        @if (item.NotUserDefined == false)
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id"><button class="btn btn-danger btn-sm">Delete</button></a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

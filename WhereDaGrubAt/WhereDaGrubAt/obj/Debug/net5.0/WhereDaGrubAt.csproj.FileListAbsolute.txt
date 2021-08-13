@@ -311,7 +311,6 @@ C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaG
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\WhereDaGrubAt.genruntimeconfig.cache
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\Create.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\Delete.cshtml.g.cs
-C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\Details.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\Edit.cshtml.g.cs
 C:\Users\dlockwood024548\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\obj\Debug\net5.0\Razor\Views\ShoppingLists\Index.cshtml.g.cs
 C:\Users\Dharla\Documents\GitHub\WhatsThereToEat\WhereDaGrubAt\WhereDaGrubAt\bin\Debug\net5.0\appsettings.Development.json

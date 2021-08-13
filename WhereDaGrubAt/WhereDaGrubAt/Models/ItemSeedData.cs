@@ -27,7 +27,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Russet Potato",
                         Category = "Vegetable",
                         Description = "A large brown potato",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -35,7 +34,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Butter",
                         Category = "Dairy",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -43,7 +41,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Half-and-Half",
                         Category = "Dairy",
                         Description = "Half whole milk half light cream",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -51,7 +48,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Salt",
                         Category = "Seasoning",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -59,7 +55,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Black Pepper",
                         Category = "Seasoning",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -67,7 +62,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Macaroni",
                         Category = "Pasta",
                         Description = "Elbow shaped noodles",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -75,7 +69,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Egg",
                         Category = "Poultry",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -83,7 +76,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Flour",
                         Category = "Grain",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -91,7 +83,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Whole Milk",
                         Category = "Dairy",
                         Description = "Contains 3.5% percent milk fat",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -99,7 +90,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Cheddar Cheese",
                         Category = "Dairy",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -107,7 +97,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Chicken Breast",
                         Category = "Poultry",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -115,7 +104,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Garlic Powder",
                         Category = "Seasoning",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -123,7 +111,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Olive Oil",
                         Category = "Misc",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -131,7 +118,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Shrimp",
                         Category = "Seafood",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -139,7 +125,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Garlic Clove",
                         Category = "Vegetable",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -147,7 +132,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Lemon",
                         Category = "Fruit",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     },
                     new Item
@@ -155,7 +139,6 @@ namespace WhereDaGrubAt.Models
                         Name = "Broccoli",
                         Category = "Vegetable",
                         Description = "",
-                        ExpirationDate = DateTime.Today,
                         NotUserDefined = true
                     }
                     );

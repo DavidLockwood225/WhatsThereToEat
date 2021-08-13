@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WhereDaGrubAt.Data;
 
 namespace WhereDaGrubAt.Migrations
 {
     [DbContext(typeof(WhereDaGrubAtContext))]
-    partial class WhereDaGrubAtContextModelSnapshot : ModelSnapshot
+    [Migration("20210812223328_Item")]
+    partial class Item
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,13 +234,12 @@ namespace WhereDaGrubAt.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("NotUserDefined")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("Quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -269,7 +270,6 @@ namespace WhereDaGrubAt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -291,10 +291,9 @@ namespace WhereDaGrubAt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ItemName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ItemQuantity")
+                    b.Property<int>("ItemQuantity")
                         .HasColumnType("int");
 
                     b.Property<string>("ListTitle")

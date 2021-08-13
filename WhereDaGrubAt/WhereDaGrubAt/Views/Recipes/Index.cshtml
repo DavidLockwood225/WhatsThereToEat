@@ -10,25 +10,62 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <style>
+        fieldset {
+            display: block;
+            padding-top: 0.35em;
+            padding-bottom: 0.625em;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            border: 2px groove;
+        }
 
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        select {
+            margin: 5px;
+        }
+
+        td, th {
+            font-family: Calibri;
+            position: relative;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<p></p>
 <h1>Recipes</h1>
-
-
-<p>
-    <a asp-action="Create">Create New Recipe</a>
-</p>
+<p></p>
 
 <form asp-controller="Recipes" asp-action="Index" method="get">
-    <p>
-        Category: <select asp-for="RecipeCategory" asp-items="Model.Categories">
-            <option value="">All</option>
-        </select>
-    </p>
-    <p>
-        Title: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
+    <fieldset>
+        <legend>Search Recipes:</legend>
+        <p>
+            Category: <select asp-for="RecipeCategory" asp-items="Model.Categories">
+                <option value="">All</option>
+            </select>
+        </p>
+        <p>
+            <input type="text" name="SearchString" />
+            <input type="submit" value="Search" />
+        </p>
+    </fieldset>
 </form>
+
+<p></p>
+<p>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Recipes")'">Create New Recipe</button>
+</p>
 
 <table class="table">
     <thead>
@@ -61,13 +98,13 @@
                 <td>
                     @if (item.NotUserDefined == false)
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit  |</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><button class="btn btn-primary btn-sm">Edit</button></a>
 
                     }
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><button class="btn btn-primary btn-sm">Details</button></a>
                     @if (item.NotUserDefined == false)
                     {
-                        <a asp-action="Delete" asp-route-id="@item.Id">| Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><button class="btn btn-danger btn-sm">Delete</button></a>
                     }
                 </td>
             </tr>

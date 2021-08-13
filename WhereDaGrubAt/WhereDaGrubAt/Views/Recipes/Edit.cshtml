@@ -34,12 +34,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Ingredients" class="control-label"></label>
-                <input asp-for="Ingredients" class="form-control" />
+                <p><sub>Input ingredients separated by commas</sub></p>
+                <textarea style="resize:none" asp-for="Ingredients" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="Ingredients" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Directions" class="control-label"></label>
-                <input asp-for="Directions" class="form-control" />
+                <p><sub>Input directions separated by commas</sub></p>
+                <textarea style="resize:none" asp-for="Directions" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="Directions" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,7 +52,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Index", "Recipes")'">Back to Recipes</button>
 </div>
 
 @section Scripts {

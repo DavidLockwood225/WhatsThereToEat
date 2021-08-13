@@ -44,7 +44,7 @@ namespace WhereDaGrubAt.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                items = items.Where(s => s.Name.Contains(searchString));
+                items = items.Where(s => s.Name.Contains(searchString) | s.Category.Contains(searchString) | s.Description.Contains(searchString));
             }
 
             if (!string.IsNullOrEmpty(itemCategory))
